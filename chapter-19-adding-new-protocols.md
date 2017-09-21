@@ -28,13 +28,74 @@ Guacamole对多个远程桌面协议的支持是通过guacd动态加载的插件
 
 * `src/ball.h`
 
-
-
-118/5000
-
-
-
 一个头文件，定义了代表弹跳球状态的结构\(一旦有必要这样做\)。
+
+
+
+所有的源文件都将在src子目录下，与C项目一样，在根目录下构建文件。主要的src /球。c和与构建相关的配置。交流和Makefile。am文件将首先被创建，每个连续的步骤在这些文件上迭代，使用src / ball。当需要的时候加上h。在每个步骤之后，您可以通过运行make来构建/重建插件，然后通过运行make install和ldconfig来安装它\(这样guacd可以找到插件\):
+
+```
+$
+make
+  CC       src/ball.lo
+  CCLD     libguac-client-ball.la
+#
+make install
+make[1]: Entering directory '/home/user/libguac-client-ball'
+ /usr/bin/mkdir -p '/usr/local/lib'
+ /bin/sh ./libtool   --mode=install /usr/bin/install -c   libguac-client-ball.la '/usr/local/lib'
+...
+----------------------------------------------------------------------
+Libraries have been installed in:
+   /usr/local/lib
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+make[1]: Nothing to be done for 'install-data-am'.
+make[1]: Leaving directory '/home/user/libguac-client-ball'
+#
+ldconfig
+```
+
+在第一次调用之前，您需要运行configure脚本，它首先需要使用autoreconf生成:
+
+```
+$
+autoreconf -fi
+libtoolize: putting auxiliary files in '.'.
+libtoolize: copying file './ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+libtoolize: copying file 'm4/libtool.m4'
+libtoolize: copying file 'm4/ltoptions.m4'
+libtoolize: copying file 'm4/ltsugar.m4'
+libtoolize: copying file 'm4/ltversion.m4'
+libtoolize: copying file 'm4/lt~obsolete.m4'
+configure.ac:10: installing './compile'
+configure.ac:4: installing './missing'
+Makefile.am: installing './depcomp'
+$
+./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+...
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: executing depfiles commands
+config.status: executing libtool commands
+$
+```
 
 
 

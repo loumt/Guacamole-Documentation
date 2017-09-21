@@ -20,4 +20,5 @@
 * [Chapter 17: guacamole-common-js](chapter-17-guacamole-common-js.md)
 * [Chapter 18:guacamole-ext](chapter-18guacamole-ext.md)
 * [Chapter 19: Adding new protocols](chapter-19-adding-new-protocols.md)
+* [Chapter 20: Custom authentication](chapter-20-custom-authentication.md)
 

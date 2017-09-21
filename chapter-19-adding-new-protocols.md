@@ -206,10 +206,10 @@ libguac_client_ball_la_LDFLAGS = -version-info 0:0:0
 
 现在我们有了一个基本的功能骨架，我们需要对远程显示进行实际操作。一个好的第一步就是简单地初始化显示器-设置远程显示大小并提供基本背景。
 
-在这种情况下,我们将显示的默认值为1024x768，并将背景填充为灰色。虽然可以根据用户浏览器窗口的大小选择显示的大小（在guacamole协议握手时用户提供link:http://guacamole.incubator.apache.org/doc/0.9.13-incubating/gug/guacamole-protocol.html\#guacamole-protocol-handshake，或在windows桌面分辨率改变时,link:http://guacamole.incubator.apache.org/doc/0.9.13-incubating/gug/protocol-reference.html\#size-event-instruction）,为了简单起见，我们不会在这里做这个:
+在这种情况下,我们将显示的默认值为1024x768，并将背景填充为灰色。虽然可以根据用户浏览器窗口的大小选择显示的大小（在guacamole协议握手时用户提供link:[http://guacamole.incubator.apache.org/doc/0.9.13-incubating/gug/guacamole-protocol.html\#guacamole-protocol-handshake，或在windows桌面分辨率改变时,link:http://guacamole.incubator.apache.org/doc/0.9.13-incubating/gug/protocol-reference.html\#size-event-instruction）,为了简单起见，我们不会在这里做这个](http://guacamole.incubator.apache.org/doc/0.9.13-incubating/gug/guacamole-protocol.html#guacamole-protocol-handshake，或在windows桌面分辨率改变时,link:http://guacamole.incubator.apache.org/doc/0.9.13-incubating/gug/protocol-reference.html#size-event-instruction）,为了简单起见，我们不会在这里做这个):
 
 ```
-#include 
+#include
 ```
 
 ```
@@ -301,4 +301,10 @@ join_handler = ball_join_handler;
 这里要注意的最重要的事情是新的ball\_join\_handler\(\)函数。当它被分配给guac\_client的join\_handler给guac\_client\_init时，连接连接的用户\(包括第一个打开连接的用户\)将传递给这个函数。join处理程序的职责是初始化提供的guac\_user，并考虑到在连接握手期间从用户收到的任何参数\(通过argc和argv公开到联接处理程序\)。我们没有实现任何参数，因此这些值只是被忽略，但是我们确实需要初始化用户以显示状态。在这种情况下，我们:
 
 1.发送一个Size命令，将显示初始化为1024\*768
+
+2.画一个1024\*768的灰色矩形覆盖在显示上使用reat或者fill命令
+
+3.发送一个sync命令，来告知服务器一个框架已经完成
+
+4.刷新Socket，确保到目前为止给套接字写的所有数据都立即发送给用户。
 

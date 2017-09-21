@@ -7,4 +7,5 @@
 * [Chapter 4: Proxying Guacamole](chapter-4-proxying-guacamole.md)
 * [Chapter 5: Configuring Guacamole](chapter-5-configuring-guacamole.md)
 * [Chapter 6: Database authentication](chapter-6-database-authentication.md)
+* [Chapter 7: LDAP authentication](chapter-7-ldap-authentication.md)
 

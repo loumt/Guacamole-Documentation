@@ -19,4 +19,5 @@
 * [Chapter 16: guacamole-common](chapter-16-guacamole-common.md)
 * [Chapter 17: guacamole-common-js](chapter-17-guacamole-common-js.md)
 * [Chapter 18:guacamole-ext](chapter-18guacamole-ext.md)
+* [Chapter 19: Adding new protocols](chapter-19-adding-new-protocols.md)
 

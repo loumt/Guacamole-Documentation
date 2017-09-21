@@ -16,4 +16,5 @@
 * [Chapter 13: Troubleshooting](chapter-13-troubleshooting.md)
 * [Chapter 14: The Guacamole protocol](chapter-14-the-guacamole-protocol.md)
 * [Chapter 15: libguac](chapter-15-libguac.md)
+* [Chapter 16: guacamole-common](chapter-16-guacamole-common.md)
 

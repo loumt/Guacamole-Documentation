@@ -10,4 +10,5 @@
 * [Chapter 7: LDAP authentication](chapter-7-ldap-authentication.md)
 * [Chapter 8: Duo two-factor authentication](chapter-8-duo-two-factor-authentication.md)
 * [Chapter 9: HTTP header authentication](chapter-9-http-header-authentication.md)
+* [Chapter 10: CAS Authentication](chapter-10-cas-authentication.md)
 

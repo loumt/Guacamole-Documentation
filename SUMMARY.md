@@ -23,4 +23,5 @@
 * [Chapter 20: Custom authentication](chapter-20-custom-authentication.md)
 * [Chapter 21: Writing your own Guacamole application](chapter-21-writing-your-own-guacamole-application.md)
 * [Appendix A. FAQ](appendix-a-faq.md)
+* [Appendix B. Guacamole protocol reference](appendix-b-guacamole-protocol-reference.md)
 

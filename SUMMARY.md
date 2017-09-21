@@ -21,4 +21,5 @@
 * [Chapter 18:guacamole-ext](chapter-18guacamole-ext.md)
 * [Chapter 19: Adding new protocols](chapter-19-adding-new-protocols.md)
 * [Chapter 20: Custom authentication](chapter-20-custom-authentication.md)
+* [Chapter 21: Writing your own Guacamole application](chapter-21-writing-your-own-guacamole-application.md)
 

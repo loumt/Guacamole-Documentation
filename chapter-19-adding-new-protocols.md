@@ -30,8 +30,6 @@ Guacamole对多个远程桌面协议的支持是通过guacd动态加载的插件
 
 一个头文件，定义了代表弹跳球状态的结构\(一旦有必要这样做\)。
 
-
-
 所有的源文件都将在src子目录下，与C项目一样，在根目录下构建文件。主要的src /球。c和与构建相关的配置。交流和Makefile。am文件将首先被创建，每个连续的步骤在这些文件上迭代，使用src / ball。当需要的时候加上h。在每个步骤之后，您可以通过运行make来构建/重建插件，然后通过运行make install和ldconfig来安装它\(这样guacd可以找到插件\):
 
 ```
@@ -97,5 +95,111 @@ config.status: executing libtool commands
 $
 ```
 
+这个过程与从git构建guacamole -服务器的过程几乎相同，同文档章节[ “Building guacamole-server”](http://guacamole.incubator.apache.org/doc/0.9.13-incubating/gug/installing-guacamole.html#building-guacamole-server)
 
+
+
+> 重点
+
+libguac库是guacamole服务器的一部分，这是该项目的一个必需依赖项。 你必须先安装 _libguac, guacd, etc. _通过章节_ _[_building and installing guacamole-server_](http://guacamole.incubator.apache.org/doc/0.9.13-incubating/gug/installing-guacamole.html#building-guacamole-server)_._ 如果guacamole-server没有被安装,或者libguac因此不存在, 这`configure` 脚本会发生一个异常表明that it could not find libguac:
+
+```
+$
+./configure
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+...
+checking for guac_client_stream_png in -lguac... no
+configure: error: "libguac is required for communication via "
+                   "the Guacamole protocol"
+$
+```
+
+你需要去安装guacamole-server 然后重新运行 `configure`.
+
+---
+
+规格最小的客户端:
+
+为了实现最基本的客户端插件，需要做的工作也很少。我们从`src/ball.c开始,包含客户端插件所需的绝对最小值:`\#include 
+
+```
+<
+guacamole/client.h
+>
+
+
+#include 
+<
+stdlib.h
+>
+
+
+/* Client plugin arguments (empty) */
+const char* TUTORIAL_ARGS[] = { NULL };
+
+int guac_client_init(guac_client* client) {
+
+    /* This example does not implement any arguments */
+    client-
+>
+args = TUTORIAL_ARGS;
+
+    return 0;
+
+}
+```
+
+注意这个文件的结构。只有一个函数`guac_client_init,这个是所有Guacamole客户端的入口点,`就好像一个典型的C项目在启动时都会去执行main函数,当一个新的连接出现或者一个已存在的协议被调用时，guacd会加载这个guacamole插件，这个guacamole插件就会去执行`guac_client_init这个函数。`
+
+`guac_client_init`这个函数接受一个初始化了的`guac_client。`这个初始化过程的一部分涉及到声明连接用户可以指定的参数列表.
+
+虽然我们不会在本教程中使用参数，因此上面指定的参数只是一个空列表，典型的客户端插件实现将注册定义远程桌面连接及其行为的参数。这种参数的例子可以在Guacamole out-of-the-box的协议的连接参数中看到\(参看： Configuring Connections\)
+
+给guac\_client\_init的guac\_client实例将由启动连接的用户共享，以及通过屏幕共享连接到连接的任何用户。它一直存在直到连接显示关闭，或者直到所有用户离开连接为止。
+
+这个项目是与GNU Automake一起构建的,我们配置一个`configure.ac 来描述项目的名字与项目所需要的一些参数。这这种情况下，这项目是` "libguac-client-ball"，它依赖于guacd和所有客户端插件使用的“libguac”库:
+
+```
+# Project information
+AC_PREREQ([2.61])
+AC_INIT([libguac-client-ball], [0.1.0])
+AM_INIT_AUTOMAKE([-Wall -Werror foreign subdir-objects])
+AM_SILENT_RULES([yes])
+
+AC_CONFIG_MACRO_DIRS([m4])
+
+# Check for required build tools
+AC_PROG_CC
+AC_PROG_CC_C99
+AC_PROG_LIBTOOL
+
+# Check for libguac
+AC_CHECK_LIB([guac], [guac_client_stream_png],,
+      AC_MSG_ERROR("libguac is required for communication via "
+                   "the Guacamole protocol"))
+
+AC_CONFIG_FILES([Makefile])
+AC_OUTPUT
+```
+
+我们同时也需要一个`Makefile.am`来描述哪些文件需要被构建和怎样何时去构建 libguac-client-ball
+
+```
+AUTOMAKE_OPTIONS = foreign
+ACLOCAL_AMFLAGS = -I m4
+AM_CFLAGS = -Werror -Wall -pedantic
+
+lib_LTLIBRARIES = libguac-client-ball.la
+
+# All source files of libguac-client-ball
+libguac_client_ball_la_SOURCES = src/ball.c
+
+# libtool versioning information
+libguac_client_ball_la_LDFLAGS = -version-info 0:0:0
+```
+
+在本教程的其余部分，GNU Automake文件将基本保持不变。
+
+一旦创建了以上所有文件，就会有一个功能正常的客户端插件,它还没有做任何事情，而且任何连接都是非常短暂的\(因为服务器发送的任何数据都将导致客户机断开连接，假设连接已经停止响应\)，但它在技术上确实有效。
 

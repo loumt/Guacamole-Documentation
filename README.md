@@ -1,7 +1,5 @@
 # Guacamole Documentation
 
-
-
 \#author lmtemail163@163.com
 
 \#create date : 2017-09-21
@@ -15,4 +13,18 @@
 \#email:lmtemail163@163.com or looty\_loumt@hotmail.com
 
 
+
+
+
+
+
+\#\#\#\#
+
+\#User's Guide
+
+\#Chapter 1 - Chapter 13
+
+
+
+\#Developer's Guide
 

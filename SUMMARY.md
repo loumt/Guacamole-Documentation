@@ -13,4 +13,5 @@
 * [Chapter 10: CAS Authentication](chapter-10-cas-authentication.md)
 * [Chapter 11: Using Guacamole](chapter-11-using-guacamole.md)
 * [Chapter 12: Administration](chapter-12-administration.md)
+* [Chapter 13: Troubleshooting](chapter-13-troubleshooting.md)
 

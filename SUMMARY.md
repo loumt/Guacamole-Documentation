@@ -25,4 +25,5 @@
 * [Appendix A. FAQ](appendix-a-faq.md)
 * [Appendix B. Guacamole protocol reference](appendix-b-guacamole-protocol-reference.md)
 * [Index](index.md)
+* [First Introduction](first-introduction.md)
 

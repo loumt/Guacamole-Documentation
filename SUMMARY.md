@@ -8,4 +8,5 @@
 * [Chapter 5: Configuring Guacamole](chapter-5-configuring-guacamole.md)
 * [Chapter 6: Database authentication](chapter-6-database-authentication.md)
 * [Chapter 7: LDAP authentication](chapter-7-ldap-authentication.md)
+* [Chapter 8: Duo two-factor authentication](chapter-8-duo-two-factor-authentication.md)
 

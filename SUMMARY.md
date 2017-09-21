@@ -17,4 +17,5 @@
 * [Chapter 14: The Guacamole protocol](chapter-14-the-guacamole-protocol.md)
 * [Chapter 15: libguac](chapter-15-libguac.md)
 * [Chapter 16: guacamole-common](chapter-16-guacamole-common.md)
+* [Chapter 17: guacamole-common-js](chapter-17-guacamole-common-js.md)
 

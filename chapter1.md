@@ -46,5 +46,5 @@ RealMint使用的通道是用PHP编写的。相比Guacamole的HTTP通道,RealMin
 
 一旦开发人员了解了HTML5 canvas标记，并看到它已经在Firefox和Chrome中实现，那么工作就开始在一个概念验证的JavaScript VNC客户机上。
 
-该客户端是纯JavaScript的Java服务器组件，并将VNC转换为基于xml的版本。
+该客户端是纯JavaScript的Java服务器组件，并将VNC转换为基于xml的版本。它的开发自然是由VNC的特性驱动的，它的作用范围仅限于将单个连接转发给一组用户。
 

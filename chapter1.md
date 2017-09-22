@@ -14,13 +14,7 @@ Guacamole协议与guacd一起提供了协议不可知论:Guacamole客户端和we
 
 > Guacamole协议
 
-web应用一直不懂任何远程桌面协议。
-
-101/5000
-
-
-
-它不包含对VNC或RDP或其他由Guacamole堆栈支持的协议的支持。
+web应用一直不懂任何远程桌面协议。它不包含对VNC或RDP或其他由Guacamole堆栈支持的协议的支持。它实际上只理解了Guacamole协议，它是用于远程显示呈现和事件传输的协议。
 
 
 

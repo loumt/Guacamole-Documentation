@@ -34,3 +34,11 @@ gucad与客户端插件都依赖一个公共的库，libguac,他使得通过Guac
 
 这个Web应用，正如前面提到的，不会实现任何远程桌面协议。他依靠于guacd,只实现一个简单的web接口和身份验证层。
 
+我们选择使用java去实现web应用的服务端，但是这并没有原因代表他不能靠其他语言去实现\(也就是可以用其他服务器端的语言去实现，如node\)。实际上，Guacamole目的是一个API，我们支持这个.
+
+> RealMint
+
+Guacamole现在是一个通用的远程桌面网关，但情况并非总是如此。Guacamole最初是一个纯文本的Telnet客户机，用JavaScript编写，叫做RealMint\( "RealMint" 是 "terminal"的一个相同字母异序词\)，它主要是作为一个演示而编写的，虽然它的目的是有用的，但它的主要原因是它是纯粹的JavaScript。
+
+
+

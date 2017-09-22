@@ -46,5 +46,9 @@ RealMint使用的通道是用PHP编写的。相比Guacamole的HTTP通道,RealMin
 
 一旦开发人员了解了HTML5 canvas标记，并看到它已经在Firefox和Chrome中实现，那么工作就开始在一个概念验证的JavaScript VNC客户机上。
 
-该客户端是纯JavaScript的Java服务器组件，并将VNC转换为基于xml的版本。它的开发自然是由VNC的特性驱动的，它的作用范围仅限于将单个连接转发给一组用户。
+该客户端是纯JavaScript的Java服务器组件，并将VNC转换为基于xml的版本。它的开发自然是由VNC的特性驱动的，它的作用范围仅限于将单个连接转发给一组用户。尽管这相对较慢，但它的功能非常好，以至于项目需要一个在线的地方来生存，并且在SourceForge上注册为“Guacamole”——一个HTML5 VNC客户端。
+
+随着Guacamole的发展和超越概念验证，对速度的需求也增加了，而旧的realmint风格的长轮投票也被取消了，XML的使用也是如此。
+
+由于WebSocket不能被信任，而且Java没有针对servlet的WebSocket标准，因此开发了一个等价的基于http的隧道。如果WebSocket不能用于任何原因，这个隧道至今仍在使用。
 

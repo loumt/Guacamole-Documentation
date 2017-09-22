@@ -40,5 +40,5 @@ gucad与客户端插件都依赖一个公共的库，libguac,他使得通过Guac
 
 Guacamole现在是一个通用的远程桌面网关，但情况并非总是如此。Guacamole最初是一个纯文本的Telnet客户机，用JavaScript编写，叫做RealMint\( "RealMint" 是 "terminal"的一个相同字母异序词\)，它主要是作为一个演示而编写的，虽然它的目的是有用的，但它的主要原因是它是纯粹的JavaScript。
 
-RealMint使用的通道是用PHP编写的。相比Guacamole的HTTP通道,RealMint使用的通道是一个简单的长轮询，效率低下。RealMint有一个不错的键盘实现，现在被用在了Guacamole的键盘实现中，这就是RealMint的特点和可用性的程度。
+RealMint使用的通道是用PHP编写的。相比Guacamole的HTTP通道,RealMint使用的通道是一个简单的长轮询，效率低下。RealMint有一个不错的键盘实现，现在被用在了Guacamole的键盘实现中，这就是RealMint的特点和可用性的程度。考虑到它只是一个遗留协议的实现，而且还存在其他几个JavaScript终端模拟器，其中大多数都是稳定的，因此项目被删除了。
 

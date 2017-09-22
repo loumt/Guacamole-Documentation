@@ -10,3 +10,17 @@ Guacamole并不是一个自包含的web应用,他是由许多部分组成.web应
 
 web应用部署到guacamole服务端读取guacamole协议，并转发到本地的guacamole代理--guacd.这个代理实际上解释了guacamole协议的内容，并代表用户连接到任意数量的远程桌面服务器
 
+Guacamole协议与guacd一起提供了协议不可知论:Guacamole客户端和web应用程序都不需要知道远程桌面协议的实际使用情况。
+
+> Guacamole协议
+
+web应用一直不懂任何远程桌面协议。
+
+101/5000
+
+
+
+它不包含对VNC或RDP或其他由Guacamole堆栈支持的协议的支持。
+
+
+

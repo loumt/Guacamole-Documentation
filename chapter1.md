@@ -52,3 +52,7 @@ RealMint使用的通道是用PHP编写的。相比Guacamole的HTTP通道,RealMin
 
 由于WebSocket不能被信任，而且Java没有针对servlet的WebSocket标准，因此开发了一个等价的基于http的隧道。如果WebSocket不能用于任何原因，这个隧道至今仍在使用。
 
+> 远程桌面通道
+
+开发了一种更快的基于文本的协议，可以呈现多个远程桌面协议的特性，而不仅仅是VNC。
+
